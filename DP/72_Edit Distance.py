@@ -5,18 +5,9 @@ class Solution(object):
         :type word2: str
         :rtype: int
 
-        替换: word1[i] 换成 word2[j]，两个都匹配消耗掉
-        → i-1, j-1
-
-        删除:word1[i] 删掉,word2不动
-            → word1少一个,i-1
-            → word2没消耗,j不变
-
-        插入:插入word2[j]到word1,word2[j]匹配消耗掉
-            → word1没动,i不变
-            → word2少一个,j-1
-
-        递归从末尾往前处理
+        dp[i-1][j-1]  ← Top-left: replacement operation
+        dp[i-1][j]    ← Top: deletion operation
+        dp[i][j-1]    ← Left: insertion operation
         """
         len1, len2 = len(word1), len(word2)
         if len1 == 0:
