@@ -3,7 +3,13 @@ class Solution(object):
         """
         :type digits: str
         :rtype: List[str]
+        
+        time: each letter corresponding 3-4 letters, 4^n, ''.join(cur) will take n times. Overall is n * (4^n)
+        space: O(n), The maximum depth of the recursion is equal to the length n of the input string
         """
+        if not digits: 
+            return []
+
         map = {
             '2' : 'abc',
             '3' : 'def',
@@ -21,8 +27,7 @@ class Solution(object):
         def make_combination(i, cur):
             # stop case, if hit the end, cur is not empty, add it to final result
             if i == len(digits):
-                if len(cur) > 0:
-                    result.append(''.join(cur))
+                result.append(''.join(cur))
                 return
 
             for char in map[digits[i]]:
