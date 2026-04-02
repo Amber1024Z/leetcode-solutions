@@ -9,7 +9,7 @@ The most recently used data will be moved to the head of the list, and the least
 
 class Node:
     # prev ← [ key | val ] → next
-    def __init__(self, key):
+    def __init__(self, key = 0, value = 0):
         self.key = key
         self.value = value
         self.prev = None
@@ -25,8 +25,8 @@ class LRUCache(object):
         self.cache = {}
         self.head = Node()
         self.tail = Node()
-        self.head.next = tail
-        self.tail.prev = head
+        self.head.next = self.tail
+        self.tail.prev = self.head
 
     def remove_node(self, node):
         # Permanently remove a node from the linked list
@@ -72,7 +72,7 @@ class LRUCache(object):
             self.add_to_head(new_node)
 
             # if exceed capacity, remove tail
-            if len(self.cache) > len(self.capacity):
+            if len(self.cache) > self.capacity:
                 need_move_node = self.tail.prev
                 self.remove_node(need_move_node)
                 # also need to remove this node from dict
