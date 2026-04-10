@@ -25,31 +25,26 @@ class Solution(object):
 
         # store dict until we have info about p and q
         while p not in parent or q not in parent:
-        	node = queue.popleft()
+            node = queue.popleft()
+        
             if node.left:
-        		queue.append(node.left)
-        		parent[node.left] = node
+                queue.append(node.left)
+                parent[node.left] = node
 
-        	if node.right:
-        		queue.append(node.right)
-        		parent[node.right] = node
+            if node.right:
+                queue.append(node.right)
+                parent[node.right] = node
 
         # use set, search time will be O(1)
         ancestors = set()
 
         # add until root
         while p:
-        	ancestors.add(p)
+            ancestors.add(p)
             # ex: ancestor = (2, 5, 3)
-        	p = parent[p]
+            p = parent[p]
 
         while q not in ancestors:
-        	q = parent[q]
+            q = parent[q]
 
         return q
-
-
-
-
-
-
