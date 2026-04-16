@@ -17,7 +17,7 @@ class Solution(object):
         def depth(node):
             if not node:
                 return 0
-
+            
             left = depth(node.left)
             right = depth(node.right)
             # update if we find longer path

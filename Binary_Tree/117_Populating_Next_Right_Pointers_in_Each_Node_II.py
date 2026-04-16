@@ -1,39 +1,43 @@
-from collections import deque
+# Definition for a Node.
+class Node(object):
+    def __init__(self, val=0, left=None, right=None, next=None):
+        self.val = val
+        self.left = left
+        self.right = right
+        self.next = next
 
 class Solution(object):
     def connect(self, root):
         """
         :type root: Node
         :rtype: Node
-
-        time: O(n), visit each node once
-        space: O(n), queue size at most n/2 for last level
+        
+        Time Complexity: O(N) - each node visited once
+        Space Complexity: O(1)
         """
-
         if not root:
             return None
 
-        q = deque()
-        q.append(root)
+        curr = root
 
-        while q:
-            size = len(q)
-
-            for i in range(size):
-                node = q.popleft()
-
-                # if i == size -1, means cur node is last node at this level
-                if i < size - 1:
-                    node.next = q[0]
-                else:
-                    node.next = None 
-
-                if node.left:
-                    q.append(node.left)
-                if node.right:
-                    q.append(node.right)
+        while curr:
+            dummy = Node(0)
+            tail = dummy
+            
+            # inner loop, same level move parallel
+            while curr:
+                if curr.left:
+                    tail.next = curr.left
+                    tail = tail.next
+                if curr.right:
+                    tail.next = curr.right
+                    tail = tail.next
+                
+                # curr move to next node on same level
+                curr = curr.next
+            
+            # dummy.next point to first node on next level
+            # move to next level
+            curr = dummy.next
 
         return root
-
-        
-        
