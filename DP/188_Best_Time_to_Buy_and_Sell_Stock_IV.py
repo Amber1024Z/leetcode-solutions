@@ -4,6 +4,9 @@ class Solution(object):
         :type k: int
         :type prices: List[int]
         :rtype: int
+
+        time: O(nk), n is the length of prices, k is the number of transactions
+        space: O(k)
         """
         n = len(prices)
         if n <= 1 or k == 0:

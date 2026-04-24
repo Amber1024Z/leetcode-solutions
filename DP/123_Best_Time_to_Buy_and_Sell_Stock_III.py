@@ -3,6 +3,13 @@ class Solution(object):
         """
         :type prices: List[int]
         :rtype: int
+
+        time: O(n), where n is the length of the input array
+        space: O(n)
+
+        scan from left to right, for each day, we can find the max profit of first transaction, then scan 
+        from right to left, for each day, we can find the max profit of second transaction, then combine 
+        the two transactions, find the cut point to maximize total profit
         """
         n = len(prices)
 
