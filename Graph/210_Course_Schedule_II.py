@@ -1,3 +1,5 @@
+from collections import deque
+
 class Solution(object):
     def findOrder(self, numCourses, prerequisites):
         """
