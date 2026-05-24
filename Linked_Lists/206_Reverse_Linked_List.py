@@ -28,4 +28,5 @@ class Solution(object):
             # move curr
             curr = next_temp
 
+        # at the end, curr point to 3, next_temp point to 3.next is None, prev point to 3, thus return prev
         return prev
