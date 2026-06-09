@@ -13,14 +13,9 @@ class Solution(object):
         "b": {"a": 0.5}
         }
 
-        time: O(M * N), N: equations, M: queries, when we build graph, takes O(N), for each query, in worst case we need 
-        to traverse the whole graph O(N) to find the path from divended to divisor, so total is O(M * N). Overall, the time
-        complexity is O(M * N) + O(N) = O(M * N)
-
-        space: O(N), store graph we need O(N) space, recursion call stack can grow up to O(N) in worst case when the graph is 
-        a chain, visited set can grow up to O(N), so overall space complexity is O(N)
-
-
+        time: O(N * (V + E)), N is number of queries
+        space: graph V + 2E, visited V, recursion worst case is V
+        
         """
         
         graph = defaultdict(dict)
