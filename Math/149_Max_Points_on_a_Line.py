@@ -1,4 +1,5 @@
 from collections import defaultdict
+from fractions import math
 class Solution(object):
     def maxPoints(self, points):
         """
