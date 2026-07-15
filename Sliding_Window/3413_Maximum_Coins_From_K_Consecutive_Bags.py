@@ -50,7 +50,7 @@ class Solution(object):
                     # or first calculation include all coins in first interval, but end didn't reach second interval's beginning
                     # both situation lead l = r + 1, next round l and r point to same interval, if curr interval can be include, will enter while (line 27) let l +=1 to calculate partial, or enter line 33 to calculate partial.
                     l = r + 1
-                    curr_sum = 0
+                    curr_sum = 0 
 
             return max_coins
 

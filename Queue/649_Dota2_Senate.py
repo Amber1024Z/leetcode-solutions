@@ -10,6 +10,7 @@ class Solution(object):
         """
 
         n = len(senate)
+        
         # use 2 queues to store each idx
 
         radiant = deque()
