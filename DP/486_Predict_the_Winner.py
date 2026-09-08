@@ -21,7 +21,7 @@ class Solution(object):
             dp[i][i] = nums[i]
 
         for diff in range(1, n):
-            # right = left + diff, in case left out of idx, left will ends on n - 1 - diff
+            # right = left + diff, max right is n - 1, thus left <= n - 1 - diff. 
             for left in range(n - diff):
                 right = left + diff
                 # dp[left][right] represents net gain from curr player
